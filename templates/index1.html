@@ -1,0 +1,319 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Form</title>
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- Font-->
+    <link rel="stylesheet" type="text/css" href="../static/css/montserrat-font.css">
+    <link rel="stylesheet" type="text/css" href="../static/fonts/material-design-iconic-font/css/material-design-iconic-font.min.css">
+    <!-- Main Style Css -->
+    <link rel="stylesheet" href="../static/css/style1.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <script>
+    function validateForm() {
+   	var x = document.getElementById("pos").value;
+   	var y = document.getElementById("pa").value;
+   	var z = document.getElementById("pse").value;
+   	var a = document.getElementById("pcn").value;
+   	var b = document.getElementById("pe").value;
+   	var c = document.getElementById("pcoa").value;
+   	var d = document.getElementById("pm").value;
+   	var sum=parseInt(a)+parseInt(b)+parseInt(c)+parseInt(d)+parseInt(x)+parseInt(y)+parseInt(z);
+   	var per=sum/7;
+  	if (per<50) {
+    alert("CareerAssist would request you to focus on your academics first !!",sum,per);
+    return false;
+  }
+  	else
+  	{
+  	return true;
+  	}
+}
+    </script>
+</head>
+<body class="form-v10">
+<br><center><h3>Welcome to CareerAssist  <br><br><small class="text-muted">Fill out the details truthfully and take the online tests wherever applicable for best results</small></h3></center><br>
+
+    <div class="page-content">
+    
+    <form  action="{{ url_for('result') }}" method="post" id="myform" onsubmit="return validateForm()">
+        <div class="form-v10-content">
+            <div class="form-detail">
+                <div class="form-left">
+                    <h2>Academic Details</h2>
+                    
+                        <div class="form-row form-row-1">
+                            <input type="number" min="0" max="100"  step="1" name="pos" id="pos" class="input-text" placeholder="Percentage in Operating System (No % sign)" required>
+                        </div>
+                        <div class="form-row form-row-1">
+                            <input type="number" min="0" max="100"  step="1" name="pa" id="pa" class="input-text" placeholder="Percentage in Algorithms (No % sign)" required>
+                        </div>
+                        <div class="form-row form-row-1">
+                            <input type="number" min="0" max="100"  step="1" name="pse" id="pse" class="input-text" placeholder="Percentage in Software Engineering (No % sign)" required>
+                        </div>
+                    <div class="form-row form-row-3">
+                        <input type="number" min="0" max="100"  step="1" name="pcn"  id="pcn" class="input-text" placeholder="Percentage in Computer Networks (No % sign)" required>
+                    </div>
+                    <div class="form-row form-row-3">
+                        <input type="number" min="0" max="100"  step="1" name="pe"  id="pe" class="input-text" placeholder="Percentage in Electronics (No % sign)" required>
+                    </div>
+                    
+                        <div class="form-row form-row-4">
+                            <input type="number" min="0" max="100"  step="1" name="pcoa" class="input-text" id="pcoa" placeholder="Percentage in Computer Architecture (No % sign)" required>
+                        </div>
+                        <div class="form-row form-row-5">
+                            <input type="number" min="0" max="100"  step="1" name="pm" class="input-text" id="pm" placeholder="Percentage in Mathematics (No % sign)" required>
+                        </div>
+                </div>
+                <div class="form-right">
+                    <h2>Technical Details</h2>
+                    <div class="form-row form-row-1">
+                        <input type="number" min="0" max="40"  step="1" name="hack" class="input-text" id="hack" placeholder="How many hackathons have you participated in?" required>
+                    </div>
+                    <div class="form-row form-row-1">
+                        <input type="number" min="1" max="10"  step="1" name="coding" id="coding" placeholder="Coding Skills rating according to the test (1-10)" required>
+                       <a href="https://www.indiabix.com/online-test/c-programming-test/random" target="_blank" class="btn btn-primary btn-sm" role="button" aria-pressed="true" name="ct">Coding Test link</a>
+                    </div>
+                     <div class="form-row form-row-3">
+                          <select name="extra">
+                            <option value="no">Did you do any Extra courses ?</option>
+                            <option value="yes">yes</option>
+                            <option value="no">no</option>
+                        </select>
+                        <span class="select-btn">
+                            <i class="zmdi zmdi-chevron-down"></i>
+                        </span>
+                        <br>
+                        </div>
+                        
+                        <div class="form-row form-row-6">
+                        <text style="color:white; margin-left: 15px;";>Workshops / Certifications 1</text>
+                          <input list="wc1" name="wc1">
+ 			 <datalist id="wc1">
+  				 
+                            
+                            <option value="app development">app development</option>
+                            <option value="distro making">distro making</option>
+                            <option value="full stack">full stack</option>
+                             <option value="hadoop">hadoop</option>
+                            <option value="information security">information security</option>
+                            <option value="machine learning">machine learning</option>
+                            <option value="python">python</option>
+                            <option value="r programming">r programming</option>
+                            <option value="shell programming">shell programming</option>
+                           
+                            
+                            
+  			</datalist>
+  			
+ 			 </div>
+                  
+                        <div class="form-row form-row-6">
+                        <text style="color:white; margin-left: 15px;";>Workshops / Certifications 2</text>
+                          <input list="wc2" name="wc2">
+ 			 <datalist id="wc2">
+  			    <option value="cloud computing">cloud computing</option>
+  			    <option value="data science">data science</option>
+                            <option value="database security">database security</option>
+                            <option value="hacking">hacking</option>
+                            <option value="game development">game development</option>
+                            <option value="system designing">system designing</option>
+                            <option value="testing">testing</option>
+                            <option value="web technologies">web technologies</option>      
+  			</datalist>
+ 			 </div>
+ 			
+ 
+                        <div class="form-row form-row-6">
+                          <select name="is1">
+                            <option value="programming">Interested Subjects (select one)</option>
+                            <option value="cloud computing">Cloud computing</option>
+                            <option value="Computer Architecture">Computer Architecture</option>
+                            <option value="Data engineering">Data engineering</option>
+                            <option value="hacking">Hacking</option>
+                            <option value="IOT">IOT</option>
+                             <option value="Management">Management</option>
+                             <option value="networks">Networks</option>
+                            <option value="parallel computing">Parallel computing</option>
+                            <option value="programming">Programming</option>                            
+                            <option value="Software Engineering">Software Engineering</option>
+                        </select>
+                        <span class="select-btn">
+                            <i class="zmdi zmdi-chevron-down"></i>
+                        </span>
+                        </div>
+                        <br>
+                </div>
+            </div>
+        </div>
+ 
+        <div class="form-v10-content">
+            <div class="form-detail">
+<div class="form-left">
+                    <h2>Soft Skills</h2>
+					<div class="form-row form-row-1">
+                            <input type="number" id="comm" name="comm" min="1" max="10" step="1" placeholder="Rate your communication skills (1-10)" required>
+                        </div>
+					<div class="form-row form-row-1">
+                            <input type="number" id="speak" name="speak" min="1" max="10" step="1" placeholder="Rate your public speaking skills (1-10)" required>
+                        </div>
+						
+			<div class="form-row form-row-4">
+			<select name="mem">
+			    <option value="medium">Memory capability according to the test</option>
+                            <option value="poor">poor</option>
+                            <option value="medium">medium</option>
+                            <option value="excellent">excellent</option>
+                        </select>
+                        
+                        <span class="select-btn">
+                            <i class="zmdi zmdi-chevron-down"></i>
+                        </span>	
+                        <a href="https://memtrax.com/" class="btn btn-primary btn-sm" target="_blank" name="mt">Memory Capability Test Link</a>		
+                        </div>
+                        
+			<div class="form-row form-row-6">
+                        <input type="number" id="logical" name="logical" min="1" max="10" step="1" placeholder="Logical quotient rating according to the test (1-10) " required>
+                        <a href="https://www.indiabix.com/online-test/logical-reasoning-test/random" class="btn btn-primary btn-sm" target="_blank" name="lt">Logical Reasoning Test Link</a>
+                        </div>
+
+			<div class="form-row form-row-8">
+			<select name="rw">
+			<option value="medium">Average of reading and writing skills</option>
+                            <option value="poor">poor</option>
+                            <option value="medium">medium</option>
+                            <option value="excellent">excellent</option>
+                        </select>
+                        <span class="select-btn">
+                            <i class="zmdi zmdi-chevron-down"></i>
+                        </span>	
+                        	
+                        	<a href="https://www.examenglish.com/PET/pet_reading2.htm" class="btn btn-primary btn-sm" target="_blank" name="rt">Reading Test</a> <text style="color:white";>....</text> <a href="https://www.examenglish.com/PET/PET_writing_part2.htm" class="btn btn-primary btn-sm" target="_blank" name="wt">Writing Test</a>
+                        </div>
+                        
+                       <div class="form-row form-row-6">
+                          <select name="team">
+                            <option value="yes">Ever worked in teams?</option>
+                            <option value="yes">yes</option>
+                            <option value="no">no</option>
+                        </select>
+                        <span class="select-btn">
+                            <i class="zmdi zmdi-chevron-down"></i>
+                        </span>
+                    </div>
+                    
+                    
+                    <div class="form-row form-row-6">
+                          <select name="ie">
+                            <option value="no">Personality ?</option>
+                            <option value="yes">introvert</option>
+                            <option value="no">extrovert</option>
+                        </select>
+                        <span class="select-btn">
+                            <i class="zmdi zmdi-chevron-down"></i>
+                        </span>
+                    </div>
+                    
+                </div>
+
+                <div class="form-right">
+                    <h2>Your personal choices</h2>
+                    
+                    <div class="form-row form-row-6">
+                          <select name="screen">
+                            <option value="no">Can you work long hours before screen?</option>
+                            <option value="yes">yes</option>
+                            <option value="no">no</option>
+                        </select>
+                        <span class="select-btn">
+                            <i class="zmdi zmdi-chevron-down"></i>
+                        </span>
+                        </div>
+                    
+                    <div class="form-row form-row-6">
+                          <select name="job">
+                            <option value="no">What do you prefer?</option>
+                            <option value="job">Job</option>
+                            <option value="higherstudies">Higher Studies</option>
+                        </select>
+                        <span class="select-btn">
+                            <i class="zmdi zmdi-chevron-down"></i>
+                        </span>
+                    </div>
+          
+                    <div class="form-row form-row-6">
+                          <select name="comp">
+                            <option value="Product based">Type of company you want to settle in?</option> 
+                            <option value="BPA">BPA</option>
+                            <option value="Cloud Services">Cloud Services</option>
+                             <option value="Finance">Finance</option>
+                            <option value="Product based">Product based</option>
+                             <option value="product development">Product development</option>                           
+                            <option value="Sales and Marketing">Sales and Marketing</option>
+                            <option value="Service Based">Service Based</option>
+                            <option value="SAaS services">SaaS services</option>        
+                            <option value="Testing and Maintainance Services">Testing and Maintainance Services</option>                    
+                            <option value="Web Services">Web Services</option>
+                        </select>
+                        <span class="select-btn">
+                            <i class="zmdi zmdi-chevron-down"></i>
+                        </span>
+                        </div>
+                  
+                    <div class="form-row form-row-6">
+                          <select name="ica">
+                            <option value="developer">Interested career area</option>
+                            <option value="Business process analyst">Business process analyst</option>
+                             <option value="cloud computing">cloud computing</option>
+                            <option value="developer">developer</option>
+                            <option value="security">security</option>
+                            <option value="system developer">system developer</option>
+                            <option value="testing">testing</option> 
+                        </select>
+                        <span class="select-btn">
+                            <i class="zmdi zmdi-chevron-down"></i>
+                        </span>
+                       </div>
+                    
+                     <div class="form-row form-row-6">
+                          <select name="learn">
+                            <option value="no">Are you capable to learn by yourself ?</option>
+                            <option value="yes">yes</option>
+                            <option value="no">no</option>
+                        </select>
+                        <span class="select-btn">
+                            <i class="zmdi zmdi-chevron-down"></i>
+                        </span>
+                    </div>
+                    
+                    <div class="form-row form-row-1">
+                            <input type="number" min="0" max="20"  step="1" name="hrs" id="hrs" class="input-text" placeholder="How many Hours can you work per day ?" required>
+                        </div>
+                    
+                    <div class="form-row form-row-6">
+                          <select name="mt">
+                            <option value="no">What interests you?</option>
+                            <option value="Management">Management</option>
+                            <option value="Technical">Technical</option>
+                        </select>
+                        <span class="select-btn">
+                            <i class="zmdi zmdi-chevron-down"></i>
+                        </span>
+                    </div>
+                    
+                    
+                    
+                    <div class="form-row-last">
+                        <input type="submit" name="register" class="register" value="Take me to Results">
+                    </div>
+                </div>
+            </div>
+        </div>
+        </form>
+    </div>
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+</html>
+ 
