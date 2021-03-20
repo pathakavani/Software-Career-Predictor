@@ -5,5 +5,5 @@ This project focuses on predicting the most potential career fields in IT indust
 
 Tech Stack:
 
-Frontend - HTML, CSS, Bootstrap
-Backend - Flask Framework(Python)
+1. Frontend - HTML, CSS, Bootstrap
+2. Backend - Flask Framework(Python)
